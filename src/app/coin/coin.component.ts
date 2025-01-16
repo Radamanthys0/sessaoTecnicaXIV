@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-coin',
@@ -8,6 +8,11 @@ import { Component, signal } from '@angular/core';
   styleUrl: './coin.component.scss'
 })
 export class CoinComponent {
-  label = signal('label')
-  value = signal(10)
+  // @Input() label = 'Moedinhas'
+  label = input('Moedinhas');
+
+  // @Input({required:true}) value:number = 0
+  value = input.required<number>();
+
+  currency = input.required<string>();
 }

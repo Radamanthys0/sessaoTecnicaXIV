@@ -2,10 +2,6 @@
   <div class="content">
     <h1>Signals From zero to hero</h1>
 
-    <!-- <h2>Moedinhas</h2>
-    <div class="counter">
-      <p>{{counter() | currency:'BRL' }}</p>
-    </div> -->
     <app-coin />
 
 
@@ -14,12 +10,8 @@
       <button (click)="increase()">+</button>
     </div>
 
-    <!-- <h2>En Dolar ($)</h2>
-    <div class="counter">
-      <p>{{counterAsDolar() | currency}}</p>
-    </div> -->
 
-    <app-coin />
+    <app-coin [value]="10" currency="BRL" />
 
 
   </div>
