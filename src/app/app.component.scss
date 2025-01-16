@@ -25,33 +25,6 @@
   box-shadow: 0px 0 12px 6px #584827;
 }
 
-.counter {
-  width: 126px;
-  padding: .5rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  animation: 8s gradient-angle infinite linear;
-  border: 2px solid transparent;
-  background-image: linear-gradient(#584827, #2d230f), conic-gradient(from var(--gradient-angle), #584827 0%, #c7a03c 37%, #f9de90 30%, #c7a03c 33%, #584827 40%, #584827 50%, #c7a03c 77%, #f9de90 80%, #c7a03c 83%, #584827 90%);
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-}
-
-@keyframes gradient-angle {
-  to {
-    --gradient-angle: 1turn;
-  }
-}
-
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0turn;
-  inherits: false;
-}
-
 .counter-actions {
   margin-top: 1rem;
   display: flex;

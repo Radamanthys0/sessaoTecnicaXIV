@@ -1,9 +1,9 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
+import { CoinComponent } from './coin/coin.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CurrencyPipe],
+  imports: [CoinComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
