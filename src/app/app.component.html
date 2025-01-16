@@ -6,6 +6,9 @@
     <div class="counter">
       <p>{{counter() | currency:'BRL' }}</p>
     </div>
+    <div class="counter-actions">
+      <button (click)="setValue()">+</button>
+    </div>
 
   </div>
 </main>
