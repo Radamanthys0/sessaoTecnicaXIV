@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+$default-background: #141a21;
+$default-color: rgba(255, 255, 255, .9);
+
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: $default-background;
+  color: $default-color;
+}
+
+body::before {
+  -size: 45px;
+  /* --line: color-mix(in oklch, canvasText, transparent 70%); */
+  content: '';
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size), linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+  -webkit-mask: linear-gradient(-20deg, transparent 64%, white);
+  mask: linear-gradient(-20deg, transparent 64%, white);
+  top: 0;
+  transform-style: flat;
+  pointer-events: none;
+  z-index: -1;
+}
