@@ -25,4 +25,13 @@ export class AppComponent {
     this.counter.update(c => ++c)
   }
 
+  constructor() {
+    effect(() => {
+      if (this.counterAsDolar() > 5) {
+        console.log("Se eu não comprar nada o desconto é maior");
+        alert("Se eu não comprar nada o desconto é maior")
+      }
+    })
+  }
+
 }
