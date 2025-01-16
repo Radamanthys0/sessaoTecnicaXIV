@@ -12,7 +12,9 @@ export class CoinComponent {
   label = input('Moedinhas');
 
   // @Input({required:true}) value:number = 0
-  value = input.required<number>();
+  value = input.required({
+    transform: (value: string | number) => typeof value === 'string' ? +value as number : value
+  });
 
-  currency = input.required<string>();
+  currency = input.required<string>({ alias: 'locale' });
 }
