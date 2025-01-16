@@ -1,37 +1,29 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CoinComponent } from './coin/coin.component';
+import { CurrencyService } from './services/currency.service';
 
 @Component({
   selector: 'app-root',
-  imports: [CoinComponent],
+  imports: [CoinComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
 
-  counter = signal(0)
-  counterAsDolar = computed(() => this.counter() / 6.04)
+  currencyService = inject(CurrencyService)
 
-  setValue() {
-    this.counter.set(10)
-  }
+  quantity = this.currencyService.quantity;
+  currencies = this.currencyService.currencies;
+  currencySelected = this.currencyService.currencySelected;
+  total = this.currencyService.total;
 
   decrease() {
-    // this.counter.update(c => --c)
-    this.counter.update(c => c > 0 ? --c : 0)
+    this.quantity.update(c => c > 0 ? --c : 0)
   }
 
   increase() {
-    this.counter.update(c => ++c)
-  }
-
-  constructor() {
-    effect(() => {
-      if (this.counterAsDolar() > 5) {
-        console.log("Se eu não comprar nada o desconto é maior");
-        alert("Se eu não comprar nada o desconto é maior")
-      }
-    })
+    this.quantity.update(c => ++c)
   }
 
 }

@@ -1,17 +1,29 @@
 <main class="main">
+
   <div class="content">
     <h1>Signals From zero to hero</h1>
 
-    <app-coin label="En Real (R$)" [value]="counter()" locale="BRL" />
-
+    <app-coin label="Valor em Real (R$)" [value]="quantity()" locale="BRL" />
     <div class="counter-actions">
       <button (click)="decrease()">-</button>
       <button (click)="increase()">+</button>
     </div>
 
-    <app-coin label="Em Dolar ($)" [value]="counterAsDolar()" locale="BRL" />
+  </div>
 
-    <app-coin label="Em Euro (€)" value="10" locale="EUR" />
+  <div class="content">
+
+    <select [(ngModel)]="currencySelected">
+      <option value="undefined">Select currency</option>
+      @for(currency of currencies(); track currency){
+        <option [ngValue]="currency">{{ currency.name_plural }} - {{currency.symbol_native}}</option>
+      }
+    </select>
+
+    @if(currencySelected()){
+    <app-coin [label]="currencySelected()?.name_plural ?? ''" [value]="total()"
+      [locale]="currencySelected()?.code ?? 'BRL'" />
+    }
 
   </div>
 </main>
