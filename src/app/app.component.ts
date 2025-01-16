@@ -10,6 +10,7 @@ import { Component, computed, effect, signal } from '@angular/core';
 export class AppComponent {
 
   counter = signal(0)
+  counterAsDolar = computed(() => this.counter() / 6.04)
 
   setValue() {
     this.counter.set(10)
